@@ -1,0 +1,528 @@
+/* ==================== CSS Variables & Reset ==================== */
+:root {
+    --primary-rose: #ff1744;
+    --rose-pink: #ff4569;
+    --rose-light: #ff6f8f;
+    --rose-lighter: #ffb3c1;
+    --rose-pastel: #ffe4e9;
+    --white: #ffffff;
+    --cream: #fff5f7;
+    --text-dark: #2d1b1f;
+    --text-light: #5d4449;
+    --gold: #ffd700;
+    --shadow-sm: 0 2px 8px rgba(255, 23, 68, 0.1);
+    --shadow-md: 0 4px 16px rgba(255, 23, 68, 0.15);
+    --shadow-lg: 0 8px 32px rgba(255, 23, 68, 0.2);
+    --shadow-xl: 0 16px 48px rgba(255, 23, 68, 0.25);
+    --gradient-rose: linear-gradient(135deg, #ff1744 0%, #ff6f8f 100%);
+    --gradient-romantic: linear-gradient(135deg, #ff4569 0%, #ff6f8f 50%, #ffb3c1 100%);
+    --gradient-shine: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe4e9 0%, #fff5f7 50%, #ffe4e9 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==================== Animated Rose Petals Background ==================== */
+.petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear infinite;
+    opacity: 0.7;
+    filter: blur(0.5px);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ==================== Container & Layout ==================== */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== Header ==================== */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.rose-icon {
+    font-size: 5rem;
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 12px rgba(255, 23, 68, 0.3));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.title-line {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    background: var(--gradient-rose);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(255, 23, 68, 0.3);
+    animation: shimmer 3s ease-in-out infinite;
+    position: relative;
+}
+
+.title-sub {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 400;
+    color: var(--rose-pink);
+    font-style: italic;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== Content Section ==================== */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ==================== Greeting Card ==================== */
+.card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    border: 2px solid var(--rose-pastel);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 179, 193, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rose-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    opacity: 0.2;
+}
+
+.rose {
+    font-size: 3rem;
+    animation: spin 10s linear infinite;
+}
+
+.rose-1 {
+    animation-delay: 0s;
+}
+
+.rose-2 {
+    animation-delay: 3.3s;
+}
+
+.rose-3 {
+    animation-delay: 6.6s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.message-box {
+    position: relative;
+    z-index: 1;
+}
+
+.message-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-style: italic;
+    color: var(--primary-rose);
+    text-align: right;
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    font-size: 1.5em;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== Interactive Section ==================== */
+.interactive-section {
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.rose-button {
+    background: var(--gradient-rose);
+    color: var(--white);
+    border: none;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.rose-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shine);
+    transition: left 0.5s ease;
+}
+
+.rose-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+.rose-button:hover::before {
+    left: 100%;
+}
+
+.rose-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.button-icon {
+    font-size: 1.5em;
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+/* ==================== Surprise Card ==================== */
+.surprise-card {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.surprise-card.show {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.surprise-content {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--rose-pastel);
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+}
+
+.surprise-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--primary-rose);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.reasons-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.reason-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--rose-pink);
+    animation: slideInLeft 0.5s ease-out both;
+}
+
+.reason-item:nth-child(1) { animation-delay: 0.1s; }
+.reason-item:nth-child(2) { animation-delay: 0.2s; }
+.reason-item:nth-child(3) { animation-delay: 0.3s; }
+.reason-item:nth-child(4) { animation-delay: 0.4s; }
+.reason-item:nth-child(5) { animation-delay: 0.5s; }
+.reason-item:nth-child(6) { animation-delay: 0.6s; }
+.reason-item:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reason-item:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--primary-rose);
+}
+
+.reason-number {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background: var(--gradient-rose);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.reason-text {
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .rose-decoration {
+        display: none;
+    }
+    
+    .message-text {
+        text-align: left;
+    }
+    
+    .surprise-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .reason-item {
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .reason-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        margin-bottom: 2rem;
+    }
+    
+    .rose-icon {
+        font-size: 4rem;
+    }
+    
+    .card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 20px;
+    }
+    
+    .rose-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .surprise-content {
+        padding: 1.5rem 1.25rem;
+        border-radius: 20px;
+    }
+    
+    .reason-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .reason-item:hover {
+        transform: scale(1.02);
+    }
+}
