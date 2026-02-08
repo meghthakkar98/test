@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend? � | Propose Day 2026</title>
+    <meta name="description" content="A special Propose Day experience - asking the sweetest question">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="propose-day.css">
+</head>
+
+<body>
+    <!-- Animated Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Sparkles Effect -->
+    <div class="sparkles-container" id="sparklesContainer"></div>
+
+    <!-- Main Container -->
+    <div class="main-container" id="mainContainer">
+
+        <!-- Scene 1: Introduction -->
+        <section class="scene active" id="scene1">
+            <div class="intro-content">
+                <div class="heart-icon">❤️</div>
+                <h1 class="intro-title">
+                    <span class="title-line">Something Special</span>
+                    <span class="title-sub">Awaits You</span>
+                </h1>
+                <p class="intro-text">
+                    Today is not just another day...<br>
+                    It's the day I want to ask you something important
+                </p>
+                <button class="continue-btn" onclick="goToScene(2)">
+                    <span>Continue</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 2: Our Journey -->
+        <section class="scene" id="scene2">
+            <div class="journey-content">
+                <h2 class="scene-title">Our Beautiful Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-icon">🌟</div>
+                        <div class="timeline-content">
+                            <h3>The First Moment</h3>
+                            <p>When our eyes first met, I knew something magical had begun</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-delay="200">
+                        <div class="timeline-icon">💫</div>
+                        <div class="timeline-content">
+                            <h3>Growing Together</h3>
+                            <p>Every day with you has been an adventure and a blessing</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-delay="400">
+                        <div class="timeline-icon">💗</div>
+                        <div class="timeline-content">
+                            <h3>Falling Deeper</h3>
+                            <p>With each passing moment, my love for you grows stronger</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-delay="600">
+                        <div class="timeline-icon">💓</div>
+                        <div class="timeline-content">
+                            <h3>This Moment</h3>
+                            <p>And now, I want to ask you something that's been on my heart</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="continue-btn" onclick="goToScene(3)">
+                    <span>Continue</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 3: The Proposal -->
+        <section class="scene" id="scene3">
+            <div class="proposal-content">
+                <div class="love-gift" id="loveGift">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box">
+                        <div class="gift-heart">💗</div>
+                    </div>
+                </div>
+                <h2 class="proposal-title">A Question From My Heart</h2>
+                <p class="proposal-message">
+                    You make my world brighter, my days sweeter, and my heart fuller.<br>
+                    Every moment with you feels like magic, and I can't imagine my life without you.<br>
+                    There's something I've been wanting to ask you...
+                </p>
+                <button class="open-box-btn" id="openBoxBtn" onclick="openGift()">
+                    <span>Open My Heart</span>
+                    <span class="btn-icon">❤️</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 4: The Big Question -->
+        <section class="scene" id="scene4">
+            <div class="question-content">
+                <div class="floating-hearts">💕</div>
+                <h1 class="big-question">
+                    Will You<br>
+                    <span class="highlight">Be My Girlfriend?</span>
+                </h1>
+                <p class="question-subtitle">Let's Make This Official 💕</p>
+                <div class="answer-buttons">
+                    <button class="answer-btn yes-btn" id="yesBtn" onclick="answerYes()">
+                        <span class="btn-text">Yes! 💕</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 5: Celebration -->
+        <section class="scene" id="scene5">
+            <div class="celebration-content">
+                <div class="fireworks" id="fireworks"></div>
+                <div class="celebration-message">
+                    <div class="celebration-icon">🎉</div>
+                    <h1 class="celebration-title">
+                        <span class="celebrate-line">You Said Yes!</span>
+                        <span class="celebrate-sub">I'm the Luckiest Person Alive</span>
+                    </h1>
+                    <div class="love-letter">
+                        <p class="letter-text">
+                            My Dearest,
+                        </p>
+                        <p class="letter-text">
+                            From this day forward, we're officially together! I promise to make you smile,
+                            support your dreams, surprise you with little moments of joy, and cherish
+                            every second we spend together. You've made me the happiest person alive.
+                        </p>
+                        <p class="letter-text">
+                            This is just the beginning of our beautiful story. I can't wait to create
+                            amazing memories, go on adventures, and fall more in love with you each day.
+                        </p>
+                        <p class="letter-text signature">
+                            Forever Yours,<br>
+                            <span class="heart-sign">💕</span>
+                        </p>
+                    </div>
+                    <div class="share-section">
+                        <button class="share-btn" onclick="shareOurMoment()">
+                            <span>Capture This Moment 📸</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Audio (Optional - add romantic background music) -->
+    <!-- <audio id="bgMusic" loop>
+        <source src="romantic-music.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <script src="propose-day.js"></script>
+</body>
+
+</html>
